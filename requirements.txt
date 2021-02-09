@@ -1,0 +1,11 @@
+Flask==1.1.1
+gevent==1.4.0
+h5py==2.10.0
+Werkzeug==0.16.0
+numpy==1.18.5
+Pillow==8.0.1
+requests==2.25.0
+tensorflow==2.3.1
+setuptools~=50.3.2
+click~=7.1.2
+pyinstaller
