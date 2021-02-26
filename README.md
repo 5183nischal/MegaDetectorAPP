@@ -83,6 +83,6 @@ Some features I'd have love to have implemented but couldn't and would make a go
 
 Yang, S. (2020, March 23). Accelerating biodiversity surveys with Azure Machine Learning. Medium. https://medium.com/microsoftazure/accelerating-biodiversity-surveys-with-azure-machine-learning-9be53f41e674 
 
-
+Microsoft. (2020). microsoft/CameraTraps. GitHub. https://github.com/microsoft/CameraTraps 
 
 
