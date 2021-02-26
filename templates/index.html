@@ -9,23 +9,40 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js">script></script>
 
-    <style>hr, h3 {padding-bottom: 20px;}canvas {background-color: #fffff;}</style>
+    <style>hr, h3 {padding-bottom: 20px;}canvas {background-color: rgb(12, 41, 9);}</style>
+
     <style>
+    body{background: rgba(255, 255, 255, 0.9);}
     </style>
+
+
+
   </head>
-  <body>
+  <body bgcolor=rgba(0,0,0,0.9)>
 
     <div class="container">
 
       <div class="header">
-        <h3 class="text-muted">Flask upload zip file and unzip</h3>
+        <h3 class="text-muted" style="color:teal;">OZ MegaDetector APP</h3>
       </div>
 
-      <form method=post enctype=multipart/form-data>
-        <input type=file name=file>
+      <form method=post enctype=multipart/form-data style='position: absolute;
+      width: 500px;
+      height: 143px;
+      border: 4px dashed rgb(90, 141, 85);
+      padding:15px'>
+        <p>Input cut-off Confidence</p>
+        <input type="number" step="0.01" name="value" >
+        <br></br>
+        <input type=file name=file >
+        <br></br>
         <input type=submit value=Upload>
       </form>
-    </div>
+
+      </form>
+
+
+
 
     <script>
     </script>

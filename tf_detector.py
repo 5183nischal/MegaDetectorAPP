@@ -16,6 +16,7 @@ from multiprocessing.pool import Pool as workerpool
 import sys
 import click
 import numpy as np
+from flask import flash
 
 import tensorflow.python.util.deprecation as deprecation
 deprecation._PRINT_DEPRECATION_WARNINGS = False
@@ -59,7 +60,7 @@ class TFDetector(object):
         # Number of decimal places to round to for confidence and bbox coordinates
         self.conf_digits = conf_digits
         self.coord_digits = coord_digits
-        self.render_conf_threshold = render_conf_threshold  # to render bounding boxes
+        self.render_conf_threshold = float(render_conf_threshold)  # to render bounding boxes
         self.output_conf_threshold = output_conf_threshold  # to include in the output json file
 
         self.label_map = {
@@ -79,14 +80,17 @@ class TFDetector(object):
         self.class_tensor = detection_graph.get_tensor_by_name(
             'detection_classes:0')
 
-    def run_detection(self, input_path, generate_bbox_images=True, recursive=False,
+    def run_detection(self, input_path, generate_bbox_images=True, recursive=True,
                       n_cores=0, results=None, checkpoint_path=None,
                       checkpoint_frequency=-1, electron=False):
 
         image_file_names = find_images(input_path, recursive=recursive)
+        print(len(image_file_names))
+        #flash(len(image_file_names))
 
         if results is None:
             results = []
+
 
         already_processed = set([i['file'] for i in results])
 
@@ -102,6 +106,8 @@ class TFDetector(object):
         if n_cores <= 1 or gpu_available:
             count = 0  # Does not count those already processed
             # Note: stylising the bar with custom characters breaks in Electron; need to investigate
+            print("we're in")
+            #flash('innnnn')
             with click.progressbar(length=len(image_file_names),
                                    label='Processing Images',
                                    show_pos=True, show_eta=True,
